@@ -74,8 +74,8 @@ app.post('/webhook', function (req, res) {
                 let displayText = `Nothing Found for: ${searchTerm}`;
                 let result;
                 if (output && output[0]) {
-                    displayText = `${output[1][0]}: ${output[2][0]}`;
-                    let telegramText = htmlEntities(`*${output[1][0]}*: ${output[2][0]} \n\n Read more at [WikiPedia](${output[3][0]})`);
+                    displayText = `${output[2][0]}`;
+                    let telegramText = htmlEntities(`${output[2][0]} \n\n Read more at [WikiPedia](${output[3][0]})`);
                     result = toApiAiResponseMessage(displayText, displayText, toTelgramObject(telegramText, 'Markdown'));
                 }
                 res.setHeader('Content-Type', 'application/json');
